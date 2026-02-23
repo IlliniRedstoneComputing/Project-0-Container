@@ -1,5 +1,6 @@
 from sys import argv
 from os import path
+from pathlib import Path
 from litemapy import Schematic, Region, BlockState
 
 def parse_bin(file_path):
@@ -51,7 +52,7 @@ def main():
     
     all_regions = generate_regions(data)
     
-    ROM_SCHEMATIC = "256_byte_ROM.litematic"
+    ROM_SCHEMATIC = Path(__file__).resolve().parent / "256_byte_ROM.litematic"
     schem = Schematic.load(ROM_SCHEMATIC)
     schem.name = f"{file_name}_ROMdata"
     schem.author = schem.author + ", AMcD"
