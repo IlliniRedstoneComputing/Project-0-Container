@@ -32,7 +32,7 @@ def generate_regions(data):
     sregions = []
     for i in range(8):
         # Define region origins based on 256_byte_ROM.litematic
-        (bx, by, bz) = (32+i%2, 17, 1+7*i)
+        (bx, by, bz) = (32+i%2, 18, 2+7*i)
         nregions.append(Region(bx, by, bz, -31, 16, 1))
         sregions.append(Region(bx, by, bz+2, -31, 16, 1))
 
