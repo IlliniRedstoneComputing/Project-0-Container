@@ -57,8 +57,11 @@ def generate_regions(data):
     return all_regions
 
 def main():
+    color = "black"
+    if len(argv) > 2:
+        color = argv[2]
     if len(argv) > 1:
-        file_path = " ".join(argv[1:])
+        file_path = argv[1]
     else:
         file_path = input(".bin file to convert: ")
     if not file_path.endswith(".bin"):
@@ -76,6 +79,12 @@ def main():
     schem.name = f"{file_name}_ROMdata"
     schem.author = schem.author + ", AMcD"
     schem.description = "ROM data generated from binary file"
+    
+    ROMregion = change_color(schem.regions["Unnamed"], color)
+    schem.regions["ROM"] = ROMregion
+    schem.regions.pop("Unnamed")
+    
+    print(schem.regions)
     for name,region in all_regions.items():
         schem.regions[name] = region
     #schem = Schematic(name=f"{file_name}_ROM", author="AMcD", description="ROM data generated from binary file", regions=all_regions)
