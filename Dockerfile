@@ -1,9 +1,11 @@
 ARG TYPE=FABRIC
 ARG EULA=TRUE
+ARG ONLINE_MODE=FALSE
 FROM itzg/minecraft-server:latest
 
 ENV TYPE=FABRIC
 ENV EULA=TRUE
+ENV ONLINE_MODE=FALSE
 
 # Copy server files (they will take on default permissions)
 WORKDIR /usr/src/init_data
